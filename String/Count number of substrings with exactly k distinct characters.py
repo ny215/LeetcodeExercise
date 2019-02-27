@@ -15,31 +15,30 @@ Output: 3
 Possible substrings are {"a", "a", "aa"}
 
 """
-class Solution(object):
 def NumberOfSubstringKDistinct(s, k):
     """
     :type s: str
     :rtype: int
     """
-    dic = {}
-    res = []
-    start = 0
-    end = 0
     n = len(s)
-    count = 0
-    for end in range(n):
-        dic[s[end]] = end
-        end += 1
-        #if the length == k, then add it to res
-        if len(dic) == k:  
-            res.append(s[start:end])
-        #if the length > k, then remove item in the substring from the front
-        if len(dic) > k:
-            delIndex = min(dic.values())
-            del dic[s[delIndex]]
-            start = delIndex + 1
-    # add the last substring that meets the requirment
-    if len(dic) == k:
-        res.append(s[start:end])
-    #remove duplicate
-    return list(set(res))
+    #initialize result
+    res = 0
+    count = [0]*27
+    string = []
+    for i in range(n):
+        disCount = 0
+        count = [0]*27
+        tmp = "" #if the substring need to be returned.
+        for j in range(i,n):
+            #it new character, increment disCount
+            if(count[ord(s[j]) -97]) == 0:
+               disCount += 1
+            count[ord(s[j]) -97] += 1
+            tmp += (s[j])
+            if(disCount == k):
+                res += 1
+                string.append(tmp)
+            if(disCount > k):
+                break
+    return string
+                

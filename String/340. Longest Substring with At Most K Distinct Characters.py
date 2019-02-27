@@ -12,7 +12,9 @@ class Solution(object):
         start, end = 0, 0
         dic = {}
         maxLen = 0
-        for end in range(n):
+        while end < n:
+            # add new character and move right pointer
+            
             dic[s[end]] = end
             end += 1
             if len(dic) > k:
