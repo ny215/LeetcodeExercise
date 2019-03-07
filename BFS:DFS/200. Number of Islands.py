@@ -30,6 +30,8 @@ class Solution(object):
         self.sink(grid, i, j-1)
         self.sink(grid, i, j+1)
 
+        
+#BFS recursion
 from collections import deque
 class Solution(object):
     def numIslands(self, grid):

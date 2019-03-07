@@ -1,0 +1,17 @@
+#Topological sorting with DFS O(n)
+
+Topological sorting:
+for each node:
+	if not marked:
+		if(dfs(node) == CYCLE) return CYCLE
+return OK
+
+dfs(node):
+	if node is marked as visited: return OK
+	if node is marked as visiting: return CYCLE
+	mark node as visiting
+	for each new_node in node.neighbors:
+		if dfs(new_node) == CYCLE: return CYCLE
+	mark as visited
+	#add node to the head of ordered_list
+	return OK

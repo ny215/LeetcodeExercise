@@ -1,0 +1,19 @@
+DFS and BFS
+
+#DFS: Use stack, FILO
+backtracking, complete search, find all the path
+going deep
+check if there is a path between two node
+
+Time:(O(V+E))
+Space:O(V)
+
+
+
+
+
+
+#BFS: Use queue, FIFO
+layer by layer
+going wide
+level order traversal tree

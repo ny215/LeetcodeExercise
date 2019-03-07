@@ -1,0 +1,13 @@
+#backtracking
+
+#Driver
+top level function
+inital value
+#OurGoal
+
+3 keys of recursion:
+choices: at each point, two choices: include or exclude
+contriants: for questions like N Queens, Sudoku
+goal: make choices. base case catches it
+
+
