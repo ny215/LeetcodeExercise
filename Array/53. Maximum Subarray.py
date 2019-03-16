@@ -1,3 +1,4 @@
+#dp
 class Solution:
     def maxSubArray(self, nums):
         """
@@ -13,12 +14,16 @@ class Solution:
             maxMax = max(maxMax, currMax)
 
         return maxMax
-	
-#test
 
-s = Solution()
-n1 = [1,2,3]
-n2 = [-1,-2,-3]
-n3 = [-2,1,-3,4,-1,2,1,-5,4]
-res = s.maxSubArray(n3)
-print(res)
+#basic dp
+class Solution:
+    def maxSubArray(self, nums):
+    if not nums:
+        return 0
+    dp = [0] * len(nums)
+    dp[0] = nums[0]
+    maxsum = dp[0]
+    for i in range(1, len(nums)):
+        dp[i] = max((dp[i-1]+ nums[i]), nums[i])
+        maxsum = max(maxsum, dp[i])
+    return maxsum

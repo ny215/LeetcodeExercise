@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+#DFS recursion
 class Solution(object):
     def invertTree(self, root):
         """
@@ -18,3 +19,25 @@ class Solution(object):
         self.invertTree(root.right)
         
         return root
+#time: O(n)
+#space: O(h)
+
+#BFS queue
+from collections import deque
+class Solution(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        queue = deque([root])
+        while queue:
+            node = queue.popleft()
+            if node:
+                node.left, node.right = node.right, node.left
+                queue.append(node.left)
+                queue.append(node.right)
+        return root
+
+#time: O(n)
+#space: O(n)
