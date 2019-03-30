@@ -4,11 +4,9 @@ class Solution:
         :type prices: List[int]
         :rtype: int
         """
-        maxProfit = 0
-        currMin = float('inf')
-        for i in range(len(prices)):
-            if prices[i] < currMin:
-                currMin = prices[i]
-            elif (prices[i] - currMin) > maxProfit: 
-                maxProfit = prices[i] - currMin
-        return maxProfit
+        minprice = float('inf')
+        maxprofit = 0
+        for p in prices:
+            minprice = min(minprice, p)
+            maxprofit = max(maxprofit, p - minprice)
+        return maxprofit
